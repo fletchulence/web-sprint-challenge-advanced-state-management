@@ -34,8 +34,8 @@ const reducer = (state = initialState, action)=>{
          return {
             ...state,
             smurf: [...state.smurf, action.payload],
-            // isLoading: false,
-            // error: ''
+            isLoading: false,
+            error: ''
          };
       // case FETCH_ERR:
       //    console.log('getting an error')
