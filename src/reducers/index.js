@@ -1,8 +1,36 @@
+import { FETCH_SMURFS } from '../actions';
 
 export const initialState = {
+   smurfs: [],
+   isLoading: false,
+   error: ''
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action)=>{
+   // console.log(store.getState())
+   //? test to see if connected 
+   //console.log('is this working?')
+   switch(action.type){
+      case FETCH_SMURFS:
+         console.log('im returning somethign')
+         return {
+            ...state,
+            smurfs: [],
+            isLoading: true,
+            error: ''
+         }
+      // case ADD_SMURF:
+      //    // const newSmurf = {
+      //    //    id: action.payload
+      //    // }
+      //    return {
+      //       ...state,
+      //       smurfs: [...state.smurfs, action.payload]
+      //    };
+      default:
+         return state;
+   }
+
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
