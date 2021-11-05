@@ -1,29 +1,41 @@
 import axios from 'axios';
 
-export const fetchSmurfs =() =>{
+export const fetchSmurfs = () =>{
    return (dispatch) => {
-      dispatch({type: FETCH_START})
+      dispatch(fetchStart())
       axios.get('http://localhost:3333/smurfs')
         .then(res=>{
            //this will dispatch fetchSucess
-           console.log('THIS IS MY SUCCESS CASE DATA',res.data)
+         //   console.log('THIS IS MY SUCCESS CASE DATA', res.data)
            dispatch(fetchSuccess(res.data))
         })
         .catch(err =>{
            //this will dispatch FETCH_ERR
-           console.error(err)
+           dispatch(fetchError(err))
+         //   console.error(err)
         })
    }
 }
 
 export const FETCH_START = 'FETCH_START';
 export function fetchStart() {
-   return({ type: FETCH_START})
+   return({ type: FETCH_START })
 }
 
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export function fetchSuccess(smurfs) {
    return({ type: FETCH_SUCCESS, payload: smurfs})
+}
+
+export const FETCH_ERR = 'FETCH_ERR';
+export function fetchError(errorMessage) {
+   return({ type: FETCH_ERR, payload: errorMessage})
+}
+
+//?this is where formActions start
+export const ADD_SMURF = 'ADD_SMURF';
+export function addSmurf(newSmurf){
+   return ({ type: ADD_SMURF, payload: newSmurf})
 }
 
 

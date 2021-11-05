@@ -4,7 +4,6 @@ import React from 'react';
 
 const Smurf = (props)=> {
     const { smurf } = props;
-    console.log('in Smurf.js', props)
     
     return(<div data-testid="smurf" className="card">
         <div className="card-body">

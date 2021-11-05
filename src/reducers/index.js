@@ -1,14 +1,14 @@
-import { FETCH_START, FETCH_SUCCESS } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERR, ADD_SMURF } from '../actions';
 
 export const initialState = {
-   smurf: [
-      {
-         id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-         name:'Poppa Smurf',
-         position:'Village Leader',
-         nickname: 'Pops',
-         description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-       }
+   smurfs: [
+      // {
+      //    id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+      //    name:'Poppa Smurf',
+      //    position:'Village Leader',
+      //    nickname: 'Pops',
+      //    description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+      //  }
    ],
    isLoading: false,
    error: ''
@@ -19,34 +19,39 @@ const reducer = (state = initialState, action)=>{
    //console.log('is this working?')
    switch(action.type){
       case FETCH_START:
-         console.log(FETCH_START, 'is working')
-         return {
+         console.log(action.type, 'is starting fetch CASE')
+         return ({
             ...state,
-            smurf: [],
+            smurfs: [],
             isLoading: true,
             error: ''
-         }
+         })
       case FETCH_SUCCESS:
-         console.log(FETCH_SUCCESS,'successful smurf')
+         console.log(action.payload,'successful smurf CASE')
          // const newSmurf = {
          //    id: action.payload
          // }
-         return {
+         return ({
             ...state,
-            smurf: [...state.smurf, action.payload],
+            smurfs: action.payload,
             isLoading: false,
             error: ''
-         };
-      // case FETCH_ERR:
-      //    console.log('getting an error')
-      //    return{
-      //       ...state,
-      //       smurfs: '',
-      //       isLoading: false,
-      //       error: action.payload
-      //    }
+         });
+      case FETCH_ERR:
+         // console.log(FETCH_ERR, action.payload)
+         return({
+            ...state,
+            smurfs: '',
+            isLoading: false,
+            error: action.payload
+         })
+      case ADD_SMURF:
+         return({
+            ...state,
+            smurfs: [...state.smurfs, action.payload]
+         })
       default:
-         console.log('reducer went default state')
+         console.log('this is my DEFAULT', state)
          return state;
    }
 

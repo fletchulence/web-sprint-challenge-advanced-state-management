@@ -11,21 +11,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
-  state = {
-    smurfs: ''
-  }
+  // state = {
+  //   smurfs: []
+  // }
 
   componentDidMount (){
     this.props.fetchSmurfs()
+    console.log('componentDidMount', this.props)
   }
 
   render() {
+    // console.log(this.state)
     return (
       <div className="App">
         <Header />
 
         <main>
-          <SmurfList smurf={this.state.smurfs}/>
+          <SmurfList /* smurf={this.state.smurfs} *//>
           <AddForm/>
         </main>
       </div>
@@ -33,11 +35,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  smurfs: state.smurfs
-})
+// const mapStateToProps = (state) => ({
+//   smurfs: state.smurfs
+// })
 
-export default connect(mapStateToProps, { fetchSmurfs })(App);
+export default connect(null, { fetchSmurfs })(App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
