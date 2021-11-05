@@ -6,7 +6,8 @@ export const fetchSmurfs =() =>{
       axios.get('http://localhost:3333/smurfs')
         .then(res=>{
            //this will dispatch fetchSucess
-           console.log(res.data[0])
+           console.log('THIS IS MY SUCCESS CASE DATA',res.data)
+           dispatch(fetchSuccess(res.data))
         })
         .catch(err =>{
            //this will dispatch FETCH_ERR
@@ -16,10 +17,16 @@ export const fetchSmurfs =() =>{
 }
 
 export const FETCH_START = 'FETCH_START';
-
 export function fetchStart() {
    return({ type: FETCH_START})
 }
+
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export function fetchSuccess(smurfs) {
+   return({ type: FETCH_SUCCESS, payload: smurfs})
+}
+
+
 
 
 //Task List:

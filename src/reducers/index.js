@@ -1,4 +1,4 @@
-import { FETCH_START } from '../actions';
+import { FETCH_START, FETCH_SUCCESS } from '../actions';
 
 export const initialState = {
    smurf: [
@@ -15,7 +15,6 @@ export const initialState = {
 }
 
 const reducer = (state = initialState, action)=>{
-   // console.log(store.getState())
    //? test to see if connected 
    //console.log('is this working?')
    switch(action.type){
@@ -27,14 +26,17 @@ const reducer = (state = initialState, action)=>{
             isLoading: true,
             error: ''
          }
-      // case FOUND_SMURF:
-      //    // const newSmurf = {
-      //    //    id: action.payload
-      //    // }
-      //    return {
-      //       ...state,
-      //       smurfs: [...state.smurfs, action.payload]
-      //    };
+      case FETCH_SUCCESS:
+         console.log(FETCH_SUCCESS,'successful smurf')
+         // const newSmurf = {
+         //    id: action.payload
+         // }
+         return {
+            ...state,
+            smurf: [...state.smurf, action.payload],
+            // isLoading: false,
+            // error: ''
+         };
       // case FETCH_ERR:
       //    console.log('getting an error')
       //    return{
