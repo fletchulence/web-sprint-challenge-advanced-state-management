@@ -1,7 +1,15 @@
-import { FETCH_SMURFS } from '../actions';
+import { FETCH_START } from '../actions';
 
 export const initialState = {
-   smurfs: [],
+   smurf: [
+      {
+         id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+         name:'Poppa Smurf',
+         position:'Village Leader',
+         nickname: 'Pops',
+         description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+       }
+   ],
    isLoading: false,
    error: ''
 }
@@ -11,15 +19,15 @@ const reducer = (state = initialState, action)=>{
    //? test to see if connected 
    //console.log('is this working?')
    switch(action.type){
-      case FETCH_SMURFS:
-         console.log('im returning somethign')
+      case FETCH_START:
+         console.log(FETCH_START, 'is working')
          return {
             ...state,
-            smurfs: [],
+            smurf: [],
             isLoading: true,
             error: ''
          }
-      // case ADD_SMURF:
+      // case FOUND_SMURF:
       //    // const newSmurf = {
       //    //    id: action.payload
       //    // }
@@ -27,6 +35,14 @@ const reducer = (state = initialState, action)=>{
       //       ...state,
       //       smurfs: [...state.smurfs, action.payload]
       //    };
+      // case FETCH_ERR:
+      //    console.log('getting an error')
+      //    return{
+      //       ...state,
+      //       smurfs: '',
+      //       isLoading: false,
+      //       error: action.payload
+      //    }
       default:
          return state;
    }
@@ -47,4 +63,5 @@ export default reducer;
 //4. Add in a reducer case to accomidate the successful smurf api fetch.
 //5. Add in a reducer cases to accomidate the failed smurf api fetch.
 //6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
+      //! we will have to make a whole new smurf object - id=Date.now()
 //7. Add in a reducer case that adds in a value to the error message.

@@ -5,17 +5,21 @@ import "./index.css";
 import App from "./App";
 
 //redux imports
+import logger from 'redux-logger';
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import reducer from './reducers'
 import { Provider } from "react-redux";
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(logger, thunk))
 
 const { worker } = require('./mocks/browser');
 worker.start();
 
 const rootElement = document.getElementById("root");
+
+//testing what is in my store
+console.log('STORE CONTENTS IN INDEX APP', store.getState())
 
 ReactDOM.render(
     <Provider store={store}>
