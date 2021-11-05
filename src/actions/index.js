@@ -37,7 +37,10 @@ export const ADD_SMURF = 'ADD_SMURF';
 export function addSmurf(newSmurf){
    return ({ type: ADD_SMURF, payload: newSmurf})
 }
-
+export const FORM_ERR = 'FORM_ERR';
+export function setError(error){
+   return ({ type: FORM_ERR, payload: error})
+}
 
 
 

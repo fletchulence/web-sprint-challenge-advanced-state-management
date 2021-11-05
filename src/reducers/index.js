@@ -1,4 +1,4 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_ERR, ADD_SMURF } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERR, ADD_SMURF, FORM_ERR } from '../actions';
 
 export const initialState = {
    smurfs: [
@@ -45,10 +45,16 @@ const reducer = (state = initialState, action)=>{
             isLoading: false,
             error: action.payload
          })
+// FORM REDUCERS BELOW
       case ADD_SMURF:
          return({
             ...state,
             smurfs: [...state.smurfs, action.payload]
+         })
+      case FORM_ERR:
+         return({
+            ...state,
+            error: action.payload
          })
       default:
          console.log('this is my DEFAULT', state)
