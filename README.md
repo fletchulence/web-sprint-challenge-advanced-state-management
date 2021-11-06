@@ -44,7 +44,7 @@ In this project, you will build the reducer, actions and basic redux connects ne
 ## Project Requirements
 
 #### Complete reducers/index.js
-  Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
+  Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
 
   * [ ] Adds the following state values into the initialState:
       - an array of smurfs
@@ -62,10 +62,10 @@ In this project, you will build the reducer, actions and basic redux connects ne
   Connect your application to reducer through redux with the thunk and logger middleware packages attached.
 
 ### Complete actions/index.js
-  Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
+  Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
 
-  * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive all smurfs from the api. Save the result of to our state and show an error if one is made.
-  * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
+  * [ x ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive all smurfs from the api. Save the result of to our state and show an error if one is made.
+  * [  ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
   * [ ] Add a standard action that allows us to set the value of the error message slice of state.
   
 ### Complete App.js

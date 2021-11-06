@@ -35,7 +35,8 @@ const AddForm = (props) => {
                 name:"",
                 position:"",
                 nickname:"",
-                description:""
+                description:"",
+                id: '',
             })
         }
     }

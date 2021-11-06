@@ -11,9 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
-  // state = {
-  //   smurfs: []
-  // }
 
   componentDidMount (){
     this.props.fetchSmurfs()
@@ -21,13 +18,12 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state)
     return (
       <div className="App">
         <Header />
 
         <main>
-          <SmurfList /* smurf={this.state.smurfs} *//>
+          <SmurfList />
           <AddForm/>
         </main>
       </div>
