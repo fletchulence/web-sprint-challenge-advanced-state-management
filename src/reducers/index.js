@@ -7,11 +7,8 @@ export const initialState = {
 }
 
 const reducer = (state = initialState, action)=>{
-   //? test to see if connected 
-   //console.log('is this working?')
    switch(action.type){
       case FETCH_START:
-         // console.log(action.type, 'is starting fetch CASE')
          return ({
             ...state,
             smurfs: [],
@@ -19,10 +16,6 @@ const reducer = (state = initialState, action)=>{
             error: ''
          })
       case FETCH_SUCCESS:
-         // console.log(action.payload,'successful smurf CASE')
-         // const newSmurf = {
-         //    id: action.payload
-         // }
          return ({
             ...state,
             smurfs: action.payload,
@@ -30,7 +23,6 @@ const reducer = (state = initialState, action)=>{
             error: ''
          });
       case FETCH_ERR:
-         // console.log(FETCH_ERR, action.payload)
          return({
             ...state,
             smurfs: '',
@@ -50,7 +42,6 @@ const reducer = (state = initialState, action)=>{
             error: action.payload
          })
       default:
-         // console.log('this is my DEFAULT', state)
          return state;
    }
 
