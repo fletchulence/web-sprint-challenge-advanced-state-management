@@ -3,7 +3,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What problem does the context API help solve?
 
-      - Context API solves the 
+      - Context API is really set out to solve the issue of prop drilling! Instead of drilling props through our application, context API allows us to create global variables to pass into the specific components necessary.
 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. **What does each piece do**? Why is the **store** known as a 'single source of truth' in a redux application?
 
@@ -17,4 +17,4 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
 
-      - 
+      - I really like Redux! I like how it almost forces organization (as in modularization) - or rather that it thrives in a more modular form. We havent really discussed the real purpose for middleware just yet, but it seems like redux was specifically designed to work with the backend and databases in true form! Which I find exciting.
