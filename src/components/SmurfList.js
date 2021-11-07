@@ -4,15 +4,8 @@ import Smurf from './Smurf';
 import { connect } from 'react-redux';
 
  const SmurfList = (props)=> {
-    //  console.log('my SMURF', props.smurf)
-    // const isLoading = false;
-    // const testSmurf = {
-    //     id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-    //     name:'Poppa Smurf',
-    //     position:'Village Leader',
-    //     nickname: 'Pops',
-    //     description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    // }
+     console.log('my SMURF', props.smurf)
+     console.log('my SMURF', props.newSmurf)
 
     if (props.isLoading) {
         return <h1>Loading...</h1>;
@@ -21,14 +14,18 @@ import { connect } from 'react-redux';
     return(<div className="listContainer">
         {/* smurfs */}
 
-        {
-        props.smurfs ?
+        {props.smurfs &&
         props.smurfs.map((smurf, idx)=>{
          return (
             <Smurf key={idx} smurf={smurf}/>
          )
-     }): null
-     }
+        })}
+        {props.newSmurf &&
+        props.newSmurf.map((smurf, idx)=>{
+         return (
+            <Smurf key={idx} smurf={smurf}/>
+         )
+        })}
 
         {/* <Smurf smurf={props.smurfs}/> */}
     </div>);
@@ -36,7 +33,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state =>({
     smurfs: state.smurfReducer.smurfs,
-    isLoading: state.smurfReducer.isLoading
+    isLoading: state.smurfReducer.isLoading,
+    newSmurf: state.formReducer.newSmurf
 })
 
 export default connect(mapStateToProps)(SmurfList);

@@ -1,7 +1,7 @@
 import { ADD_SMURF, FORM_ERR } from '../actions'
 
 export const initialState = {
-   newSmurf: {},
+   newSmurf: [],
    error: ''
 }
 
