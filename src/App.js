@@ -12,9 +12,9 @@ import "./App.css";
 
 class App extends Component {
 
-  componentDidMount (){
+  componentDidMount() {
     this.props.fetchSmurfs()
-    console.log('componentDidMount', this.props)
+    // console.log('componentDidMount', this.props)
   }
 
   render() {
