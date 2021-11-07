@@ -35,8 +35,8 @@ import { connect } from 'react-redux';
 }
 
 const mapStateToProps = state =>({
-    smurfs: state.smurfs,
-    isLoading: state.isLoading
+    smurfs: state.smurfReducer.smurfs,
+    isLoading: state.smurfReducer.isLoading
 })
 
 export default connect(mapStateToProps)(SmurfList);

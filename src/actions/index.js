@@ -13,6 +13,19 @@ export const fetchSmurfs = () =>{
    }
 }
 
+export const postSmurf = (newSmurf) =>{
+   return (dispatch) => {
+      dispatch(fetchStart())
+      axios.post('http://localhost:3333/smurfs', newSmurf)
+        .then(res=>{
+           dispatch(fetchSuccess(res.data))
+        })
+        .catch(err =>{
+           dispatch(fetchError(err))
+        })
+   }
+}
+
 export const FETCH_START = 'FETCH_START';
 export function fetchStart() {
    return({ type: FETCH_START })

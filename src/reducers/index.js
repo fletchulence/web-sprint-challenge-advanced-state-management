@@ -1,63 +1,15 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_ERR, ADD_SMURF, FORM_ERR } from '../actions';
+import { combineReducers } from 'redux';
 
-export const initialState = {
-   smurfs: [],
-   isLoading: false,
-   error: ''
-}
+import { formReducer } from './formReducers';
+import { smurfReducer } from './smurfReducers';
 
-const reducer = (state = initialState, action)=>{
-   //? test to see if connected 
-   //console.log('is this working?')
-   switch(action.type){
-      case FETCH_START:
-         // console.log(action.type, 'is starting fetch CASE')
-         return ({
-            ...state,
-            smurfs: [],
-            isLoading: true,
-            error: ''
-         })
-      case FETCH_SUCCESS:
-         // console.log(action.payload,'successful smurf CASE')
-         // const newSmurf = {
-         //    id: action.payload
-         // }
-         return ({
-            ...state,
-            smurfs: action.payload,
-            isLoading: false,
-            error: ''
-         });
-      case FETCH_ERR:
-         // console.log(FETCH_ERR, action.payload)
-         return({
-            ...state,
-            smurfs: '',
-            isLoading: false,
-            error: action.payload
-         })
-
-// FORM-REDUCERS BELOW
-      case ADD_SMURF:
-         return({
-            ...state,
-            smurfs: [...state.smurfs, action.payload]
-         })
-      case FORM_ERR:
-         return({
-            ...state,
-            error: action.payload
-         })
-      default:
-         // console.log('this is my DEFAULT', state)
-         return state;
-   }
-
-}
+export default combineReducers({
+   formReducer,
+   smurfReducer
+})
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
-export default reducer;
+// export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
