@@ -11,7 +11,7 @@ const reducer = (state = initialState, action)=>{
    //console.log('is this working?')
    switch(action.type){
       case FETCH_START:
-         console.log(action.type, 'is starting fetch CASE')
+         // console.log(action.type, 'is starting fetch CASE')
          return ({
             ...state,
             smurfs: [],
@@ -19,7 +19,7 @@ const reducer = (state = initialState, action)=>{
             error: ''
          })
       case FETCH_SUCCESS:
-         console.log(action.payload,'successful smurf CASE')
+         // console.log(action.payload,'successful smurf CASE')
          // const newSmurf = {
          //    id: action.payload
          // }
@@ -37,7 +37,8 @@ const reducer = (state = initialState, action)=>{
             isLoading: false,
             error: action.payload
          })
-// FORM REDUCERS BELOW
+
+// FORM-REDUCERS BELOW
       case ADD_SMURF:
          return({
             ...state,
@@ -49,7 +50,7 @@ const reducer = (state = initialState, action)=>{
             error: action.payload
          })
       default:
-         console.log('this is my DEFAULT', state)
+         // console.log('this is my DEFAULT', state)
          return state;
    }
 
