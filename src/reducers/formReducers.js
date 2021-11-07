@@ -1,7 +1,7 @@
 import { ADD_SMURF, FORM_ERR } from '../actions'
 
 export const initialState = {
-   smurfs: [],
+   newSmurf: {},
    error: ''
 }
 
@@ -11,7 +11,7 @@ export const formReducer = (state = initialState, action)=>{
          // console.log(action.type)
          return({
             ...state,
-            smurfs: [...state.smurfs, action.payload]
+            newSmurf: [...state.newSmurf, action.payload]
          })
       case FORM_ERR:
          return({
